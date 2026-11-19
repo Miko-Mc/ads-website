@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="style.css"/>
+  
+    </head>
+    <body style="background-color: bisque;">
+        <h3>
+            <span style="color:brown">
+                Kontaktdaten:
+            </span> 
+            <br>
+                E-Mail: Mikolaj.Myjak@Student.HTW-Berlin.de <br>
+                Tel.: +49 17621420748
+        </h3>
+<table>
+    <caption>Wohnorte (<i>nicht chronologisch</i>)</caption>
+  <tr>
+    <th>Land</th>
+    <th>Stadt</th>
+    <th>Wohndauer</th>
+  </tr>
+  <tr>
+    <td>Deutschland</td>
+    <td>Berlin</td>
+    <td>18 Jahre</td>
+  </tr>
+  <tr>
+    <td>Polen</td>
+    <td>Warszawa</td>
+    <td>1 Jahr</td>
+  </tr>
+  <tr>
+    <td>Taiwan</td>
+    <td>Taichung</td>
+    <td>1 Jahr</td>
+</tr>
+</table>
+<br>
+<button id="grad1"> <a href="html_1_3_Teil_B.html"><b>back to Main</b></a></button>
+
+<!-- Place this where you want the ad to appear -->
+<div id="fake-ad-container" style="text-align: center; margin: 20px auto;"></div>
+
+  <script>
+  const ads = [
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JPeDNEHe5s86yseMeTTJbOqTGZcbtRiTUbol-BwUuA&s=10",
+      link: "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVQHEIkXXS-YYirWF92KwYY4inxo4SRp3fj35gfmpVLxL4yyYJr_UOi9AcEmw93pPiRgKPSybGebixBkHEE2mcuC8fAYgpvQht700AvwYo4qgqkILpbo&ved=2ahUKEwiF9KvS_5OYAxVIavEDHSCSGjcQFnoECA4QAQ&uoh=2&usg=AOvVaw0IHiMmpH65Xq18ylpTLlp9",
+      alt: "yeezy Ad"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVJqC8UdJB9H3ELCd1Rq_j_RxZZAhTrO0EjZ87Dl6dzQ&s=10",
+      link: "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVAHEIkXXhz_i_Ko7gcPB95Qg7-ly4PKqYu_xQFat32M2PqdhxreTNegZo58WPSeexx4LD5YImyAO4klgOk7m8M3wzsuVMBmwPYwc1ZJUxvndpY0MKw&ved=2ahUKEwiz59_3gJSYAxWLQvEDHW1fH4MQFnoECDUQAQ&uoh=2&usg=AOvVaw0mbi-hkqyksdoDNI5wd7Zi",
+      alt: "Download More RAM"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMIT4RPRaynMyLvrMfRN1-vQ46-YjO-0QHB6ZAQBoFsg&s=10",
+      link: "https://fa.wikipedia.org/wiki/%D8%B5%D9%81%D8%AD%D9%87%D9%94_%D8%A7%D8%B5%D9%84%DB%8C",
+      alt: "new miracle cure"
+    }
+  ];
+
+  // Pick a random ad
+  const randomAd = ads[Math.floor(Math.random() * ads.length)];
+
+  // Render it on the page
+  document.getElementById("fake-ad-container").innerHTML = `
+    <a href="${randomAd.link}" target="_blank" rel="noopener noreferrer">
+      <img src="${randomAd.img}" alt="${randomAd.alt}" style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+    </a>
+  `;
+  </script>
+
+
+
+
+
+
+
+
+<style>
+  /* Dark background behind the pop-up */
+  #popup-overlay {
+    display: none;              /* Hidden until the timer triggers */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;             /* Higher than your side banner (9999) */
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* The pop-up box itself */
+  #popup-box {
+    position: relative;
+    width: 350px;               /* Width of the pop-up ad */
+    max-width: 90%;             /* Shrinks neatly on mobile phones */
+    background: #fff;
+    border: 3px solid #000;
+    box-shadow: 8px 8px 0px #000;
+  }
+
+  #popup-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* The close "X" button */
+  #popup-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: #ff0000;
+    color: #fff;
+    border: 2px solid #000;
+    font-weight: bold;
+    font-family: sans-serif;
+    cursor: pointer;
+  }
+</style>
+
+<!-- Pop-Up HTML Structure -->
+<div id="popup-overlay">
+  <div id="popup-box">
+    <button id="popup-close" onclick="closePopup()">X</button>
+    <div id="popup-content"></div>
+  </div>
+</div>
+
+<script>
+  const popupAds = [
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0qtB29XslpAkfgZ2CP6UBZ-psa_PfJS3AFEKF2YW12w&s=10",
+      link: "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESTwHEIkXXvc4fP89xPtGEx64Eeh8sqTB1Mlkh5YaRLZg8d2uCEr4hZ0kK8GBMaw7QtNB533WaWH_ZUXO-ungKHAiGFqsCzcvtN9tR98OUQ9w&ved=2ahUKEwj8n5bohJSYAxUpSPEDHSJlLlkQFnoECB0QAQ&uoh=2&usg=AOvVaw26gg14brq28Q9YLlfA4eq7",
+      alt: "Fake Winner Pop-Up"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsEsQilyu3d5vjZyVNY1hEt86cDqs6PMginNeuHsw4Bw&s=10",
+      link: "https://www.google.com/aclk?sa=L&ai=DChsSEwjHuKDAhZSYAxUh1loEHdIPF44YACICCAEQCRoCd2Y&co=1&gclid=EAIaIQobChMIx7igwIWUmAMVIdZaBB3SDxeOEAAYASAAEgIa_fD_BwE&sig=AOD64_1IH9S2ic6_kmXdZY5lFqRAdJRGLg&q&adurl&ved=2ahUKEwi46JrAhZSYAxVuBNsEHX7VM5kQ0Qx6BAgTEAE",
+      alt: "Fake Antivirus Pop-Up"
+    }
+  ];
+
+  // Function to pick a new random ad and show the pop-up
+  function showPopup() {
+    const randomPopup = popupAds[Math.floor(Math.random() * popupAds.length)];
+    
+    document.getElementById("popup-content").innerHTML = `
+      <a href="${randomPopup.link}">
+        <img src="${randomPopup.img}" alt="${randomPopup.alt}">
+      </a>
+    `;
+    
+    document.getElementById("popup-overlay").style.display = "flex";
+  }
+
+  // 1. FIRST POP-UP DELAY: Change 3000 (3 seconds) for the initial appearance
+  setTimeout(showPopup, 3000);
+
+  // Close function that schedules the next pop-up
+  function closePopup() {
+    document.getElementById("popup-overlay").style.display = "none";
+
+    // 2. REPEAT DELAY: Change 10000 (10 seconds) for how long until it comes back
+    setTimeout(showPopup, 1000);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br>hi<br><br><br><br><br><br><br>look down<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>further<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>hihihihi<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<mark>all this just to show the ads being fixed</mark>
+    </body>
+</html>
